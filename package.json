@@ -1,0 +1,32 @@
+{
+  "name": "nbem",
+  "description": "nbem is for intuitively write the class name of BEM method.",
+  "version": "0.1.0",
+  "author": "ideyuta <ide.yuta@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/ideyuta/nbem/issues"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "eslint": "^1.5.1",
+    "eslint-config-kanmu": "^4.0.0",
+    "mocha": "^2.3.0"
+  },
+  "keywords": [
+    "bem",
+    "class",
+    "css",
+    "jsx",
+    "react"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ideyuta/nbem.git"
+  },
+  "scripts": {
+    "build": "babel src/index.js -o index.js",
+    "test": "mocha test/index.js --compilers js:babel/register"
+  }
+}

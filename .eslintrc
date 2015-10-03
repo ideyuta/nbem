@@ -1,0 +1,4 @@
+extends: kanmu
+parser: babel-eslint
+env:
+  mocha: true

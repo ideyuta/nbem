@@ -24,7 +24,7 @@ export default function nbem() {
       if (key <= length) {
         return c.split(':').join(config.separator.modifier);
       }
-    }).join(config.separator.element);
+    }).filter(c => c).join(config.separator.element);
     return cls;
   }
 

@@ -47,6 +47,8 @@ function nbem() {
       if (key <= length) {
         return c.split(':').join(config.separator.modifier);
       }
+    }).filter(function (c) {
+      return c;
     }).join(config.separator.element);
     return cls;
   }

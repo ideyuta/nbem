@@ -22,6 +22,7 @@ describe('nbem', () => {
     bem('b');
     assert(bem('&e') === 'b__e');
     assert(bem('&&e') === 'b__e__e');
+    assert(bem('&e') === 'b__e');
   });
 
   it('should return modified className', () => {

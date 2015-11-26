@@ -4,7 +4,11 @@ import {config} from '../src/index';
 
 /** @test {nbem} */
 describe('nbem', () => {
-  let bem = nbem();
+  let bem = null;
+
+  beforeEach(() => {
+    bem = nbem();
+  });
 
   it('is closure', () => {
     assert(typeof bem === 'function');
@@ -15,19 +19,18 @@ describe('nbem', () => {
   });
 
   it('should return nested className', () => {
+    bem('b');
     assert(bem('&e') === 'b__e');
     assert(bem('&&e') === 'b__e__e');
   });
 
   it('should return modified className', () => {
-    bem = nbem();
     bem('b');
     assert(bem('&e:m') === 'b__e--m');
     assert(bem('&&e:m') === 'b__e--m__e--m');
   });
 
   it('change separator', () => {
-    bem = nbem();
     config.setSeparator('_', '-');
     bem('B');
     assert(bem('&e:m') === 'B_e-m');

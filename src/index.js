@@ -1,5 +1,9 @@
 class Config {
   constructor() {
+    this.init();
+  }
+
+  init() {
     this.separator = {
       element: '__',
       modifier: '--'

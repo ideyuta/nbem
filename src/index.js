@@ -18,19 +18,41 @@ class Config {
 export const config = new Config();
 
 export default function nbem() {
-  const clses = [];
+  let clses = [];
 
-  function _nbem(rawCls) {
-    const nests = rawCls.split('&');
-    const length = nests.length - 1;
-    clses[length] = nests[length];
-    const cls = clses.map((c, key) => {
-      if (key <= length) {
-        return c.split(':').join(config.separator.modifier);
+  function _nbem(rawCls, staticClses = null) {
+    const ret = createBemClassName(clses, rawCls);
+    clses = ret[0];
+    if (typeof staticClses === 'string') {
+      return `${ret[1]} ${staticClses}`;
+    } else if (typeof staticClses === 'object' && staticClses instanceof Array) {
+      const scls = joinStaticClses(staticClses);
+      if (scls) {
+        return `${ret[1]} ${scls}`;
       }
-    }).filter(c => c).join(config.separator.element);
-    return cls;
+    }
+    return ret[1];
   }
 
   return _nbem;
+}
+
+function createBemClassName(clses, rawCls) {
+  const nests = rawCls.split('&');
+  const length = nests.length - 1;
+  const _clses = [].concat(clses);
+  _clses[length] = nests[length];
+  const cls = _clses.map((c, key) => {
+    if (key <= length) {
+      return c.split(':').join(config.separator.modifier);
+    }
+  }).filter(c => c).join(config.separator.element);
+  return [_clses, cls];
+}
+
+function joinStaticClses(staticClses) {
+  if (staticClses.every(c => typeof c === 'string')) {
+    return staticClses.join(' ');
+  }
+  return '';
 }

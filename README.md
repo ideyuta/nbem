@@ -12,7 +12,7 @@ npm i nbem
 
 ## Usage
 
-Use with node.js, browserify, webpack:
+##### Use with node.js, browserify, webpack:
 
 ```js
 var nbem = require(nbem);
@@ -34,7 +34,7 @@ bem('header:global'); // => "header--global"
 bem('&nav'); // => "header--global__nav"
 ```
 
-Customize separator:
+##### Customize separator:
 
 ```js
 var config = require(nbem).config;
@@ -48,6 +48,7 @@ header('&title') // => "header-global_title"
 in React of ES6
 
 ```js
+import React from 'react';
 import nbem from 'nbem';
 
 export default class Header extends React.Component {

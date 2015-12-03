@@ -7,6 +7,7 @@ describe('nbem', () => {
   let bem = null;
 
   beforeEach(() => {
+    config.init();
     bem = nbem();
   });
 
@@ -36,5 +37,26 @@ describe('nbem', () => {
     bem('B');
     assert(bem('&e:m') === 'B_e-m');
     assert(bem('&&e:m') === 'B_e-m_e-m');
+  });
+
+  describe('should return bem className and static className', () => {
+    it('is string', () => {
+      bem('b');
+      assert(bem('&e', 'a') === 'b__e a');
+    });
+
+    it('is string[]', () => {
+      bem('b');
+      assert(bem('&e', ['a', 'b']) === 'b__e a b');
+    });
+
+    it('isnt string or string[]', () => {
+      bem('b');
+      assert(bem('&e', 2) === 'b__e');
+      assert(bem('&e', true) === 'b__e');
+      assert(bem('&e', {a: 'b'}) === 'b__e');
+      assert(bem('&e', [true, false]) === 'b__e');
+      assert(bem('&e', ['a', false]) === 'b__e');
+    });
   });
 });

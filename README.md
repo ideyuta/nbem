@@ -34,6 +34,17 @@ bem('header:global'); // => "header--global"
 bem('&nav'); // => "header--global__nav"
 ```
 
+##### Join classnames:
+
+Add a string or string[] at second argument.
+
+```js
+bem('header'); // => "header"
+bem('&nav', 'isActive'); // => "header__nav isActive"
+bem('&nav', ['isActive', 'isHover']); // => "header__nav isActive isHover"
+bem('&&item'); // => "header__nav__item"
+```
+
 ##### Customize separator:
 
 ```js

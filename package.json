@@ -7,11 +7,18 @@
     "url": "https://github.com/ideyuta/nbem/issues"
   },
   "devDependencies": {
-    "babel": "^5.8.23",
-    "eslint": "^1.5.1",
-    "eslint-config-kanmu": "^4.0.0",
-    "mocha": "^2.3.0"
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-register": "^6.5.2",
+    "eslint": "^1.10.3",
+    "eslint-config-kanmu": "^9.1.0",
+    "fs-extra": "^0.26.5",
+    "mocha": "^2.4.5"
   },
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "bem",
     "class",
@@ -20,13 +27,13 @@
     "react"
   ],
   "license": "MIT",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/ideyuta/nbem.git"
   },
   "scripts": {
-    "build": "babel src/index.js -o index.js",
-    "test": "mocha test/index.js --compilers js:babel/register"
+    "build": "mkdir -p lib/ && babel src --out-dir lib",
+    "test": "npm run build && mocha test/index.js --compilers js:babel-register"
   }
 }

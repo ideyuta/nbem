@@ -1,8 +1,13 @@
 # nbem
 
-## Description
+> nbem is for intuitively write the class name of BEM method.
 
-nbem is for intuitively write the class name of BEM method.
+[![NPM version][npm-image]][npm-url]
+[![NPM downloads][npm-download-image]][npm-download-url]
+[![Build Status][travis-image]][travis-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
+[![DevDependency Status][daviddm-dev-image]][daviddm-dev-url]
+[![License][license-image]][license-url]
 
 ## Installation
 
@@ -50,8 +55,9 @@ bem('&&item'); // => "header__nav__item"
 ```js
 var config = require(nbem).config;
 config.setSeparator('-', '_'); // element, modifier
-header('header:global'); // => "header-global"
-header('&title') // => "header-global_title"
+
+bem('header:global'); // => "header-global"
+bem('&title') // => "header-global_title"
 ```
 
 ## Example
@@ -82,3 +88,16 @@ Render:
   <p class="header__description">Description</p>
 </header>
 ```
+
+[npm-url]: https://www.npmjs.com/package/nbem
+[npm-image]: https://img.shields.io/npm/v/nbem.svg?style=flat-square
+[npm-download-url]: https://www.npmjs.com/package/nbem
+[npm-download-image]: https://img.shields.io/npm/dt/nbem.svg?style=flat-square
+[travis-url]: https://travis-ci.org/ideyuta/nbem
+[travis-image]: https://img.shields.io/travis/ideyuta/nbem.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/ideyuta/nbem
+[daviddm-image]: https://img.shields.io/david/ideyuta/nbem.svg?style=flat-square
+[daviddm-dev-url]: https://david-dm.org/ideyuta/nbem#info=devDependencies
+[daviddm-dev-image]: https://img.shields.io/david/dev/ideyuta/nbem.svg?style=flat-square
+[license-url]: http://opensource.org/licenses/MIT
+[license-image]: https://img.shields.io/npm/l/nbem.svg?style=flat-square

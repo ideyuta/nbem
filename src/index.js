@@ -27,8 +27,8 @@ class Config {
   /**
    * Set Separator
    *
-   * @param {string} element - element separator
-   * @param {string} [modifier] - modifier separator
+   * @param element - element separator
+   * @param [modifier] - modifier separator
    */
   setSeparator(element: string, modifier: string = '--') {
     this.separator = {element, modifier};
@@ -40,8 +40,6 @@ export const config = new Config();
 
 /**
  * nbem
- *
- * @return {function} nbem closure function
  */
 export default function nbem(): (rawCls: string, staticClses?: string[] | string) => string {
   let clses = [];
@@ -49,9 +47,8 @@ export default function nbem(): (rawCls: string, staticClses?: string[] | string
   /**
    * nbem
    *
-   * @param {string} rawCls - raw classname
-   * @param {(string[]|string|null)} staticClses - static classes
-   * @return {string} classname
+   * @param rawCls - raw classname
+   * @param staticClses - static classes
    */
   function _nbem(rawCls: string, staticClses?: string[]|string): string {
     const ret = createBemClassName(clses, rawCls);
@@ -73,9 +70,8 @@ export default function nbem(): (rawCls: string, staticClses?: string[] | string
 /**
  * Create Bem Class Name
  *
- * @param {string[]} clses - bem class tree
- * @param {string} rawCls - raw classname
- * @return {[string[], string]} clses, classname
+ * @param clses - bem class tree
+ * @param rawCls - raw classname
  */
 function createBemClassName(clses: string[], rawCls: string): [string[], string] {
   const nests = rawCls.split('&');
@@ -93,8 +89,7 @@ function createBemClassName(clses: string[], rawCls: string): [string[], string]
 /**
  * Join Static ClassNames
  *
- * @param {(string[]|string)} staticClses - static classnames
- * @return {string} static classnames
+ * @param staticClses - static classnames
  */
 function joinStaticClses(staticClses: string[]): string {
   if (staticClses.every(c => typeof c === 'string')) {

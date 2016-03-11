@@ -37,7 +37,7 @@
     "url": "https://github.com/ideyuta/nbem.git"
   },
   "scripts": {
-    "build": "babel src --out-dir lib",
+    "build": "babel src --out-dir lib && cp src/index.js lib/index.js.flow",
     "flow": "flow src/index.js",
     "test": "npm run flow && mocha test/index.js --compilers js:babel-register"
   }

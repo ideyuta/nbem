@@ -1,7 +1,7 @@
 {
   "name": "nbem",
   "description": "nbem is for intuitively write the class name of BEM method.",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "author": "ideyuta <ide.yuta@gmail.com>",
   "bugs": {
     "url": "https://github.com/ideyuta/nbem/issues"
